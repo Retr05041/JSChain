@@ -39,7 +39,9 @@ class Miner {
 
     public start() {
         // Mine a block
-        this.mine("Hello, world!");
+        while (true) {
+            this.mine("Block: " + this.chain.getNumberOfBlocks());
+        }
     }
 
 }
