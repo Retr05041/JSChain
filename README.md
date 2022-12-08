@@ -14,13 +14,13 @@
 Must have `node` and `npm` installed.
 
 In root directory, install the dpendencies with:
-> `npm install`
+> npm install
 
 Then, build the Typescript with:
-> `npm run build`
+> npm run build
 
 Finally, run the program with:
-> `npm run start`
+> npm run start
 
 ## Contact / Sugestions
 Please create an [issue](https://github.com/Retr05041/TSChain/issues) if you would like to get in contact or have a problem.
