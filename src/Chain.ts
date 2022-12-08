@@ -12,7 +12,7 @@ class Chain {
     private chain: Block[];
     private genisisBlock: Block;
     private difficulty: number;
-    private debug: boolean;
+    private static instance: Chain;
 
     /**
      * Constructor for Chain
@@ -20,34 +20,20 @@ class Chain {
      * @param baseDifficulty Difficulty of the first block
      * @param debug Debug mode
      */
-    constructor(baseDifficulty: number, debug: boolean) {
+    private constructor(baseDifficulty: number) {
         this.genisisBlock = Block.createGenesisBlock();
         this.chain = [this.genisisBlock];
         this.difficulty = baseDifficulty;
-        this.debug = debug;
 
         this.genisisBlock.mineBlock(this.difficulty);
         this.difficulty++;
         this.displayBlock(this.chain.length - 1);
     }
 
-    /**
-     * Mine a block with the given data
-     * 
-     * @param data Data to be stored in the block
-     */
-    public mine(data: string) {
-        // Create new block
-        const newBlock = new Block(data, this.chain[this.chain.length - 1].getHash());
-
-        // Mine the block
-        newBlock.mineBlock(this.difficulty);
-
-        // Add the block to the chain
-        this.chain.push(newBlock);
-        this.difficulty++;
-        this.displayBlock(this.chain.length - 1);
+    public static getInstance() {
+        return this.instance || (this.instance = new this(1));
     }
+
 
     /**
      * Display a block in the chain based off of the index
@@ -71,6 +57,43 @@ class Chain {
      */
     public getNumberOfBlocks() {
         return this.chain.length;
+    }
+
+    /**
+     * Get a block in the chain based off of the index
+     * 
+     * @param index Index of the block to be returned
+     * @returns Block at the given index
+     */
+    public getBlockByIndex(index: number) {
+        return this.chain[index];
+    }
+
+    /**
+     * Get the difficulty of the chain
+     * 
+     * @returns Difficulty of the chain
+     */
+    public getDifficulty() {
+        return this.difficulty;
+    }
+
+    /**
+     * Push a block to the chain
+     * 
+     * @param block Block to be pushed
+     */
+    public addBlock(block: Block) {
+        this.chain.push(block);
+    }
+
+    /**
+     * Increment the difficulty of the chain
+     * 
+     * @param amount Amount to increment the difficulty by
+     */
+    public incrementDifficulty() {
+        this.difficulty++;
     }
 
 }
