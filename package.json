@@ -1,0 +1,27 @@
+{
+  "name": "tschain",
+  "version": "1.0.0",
+  "description": "Blockchain made in TypeScript",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Retr05041/TSChain.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Retr05041/TSChain/issues"
+  },
+  "homepage": "https://github.com/Retr05041/TSChain#readme",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/crypto-js": "^4.1.1",
+    "@types/node": "^18.11.11",
+    "crypto-js": "^4.1.1"
+  }
+}
