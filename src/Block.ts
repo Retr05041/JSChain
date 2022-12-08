@@ -2,7 +2,7 @@
 import sha256 from 'crypto-js/sha256';
 
 /**
- * This class represents a block in the chain
+ * This class represents a block
  * 
  * @author Parker Cranfield
  */
