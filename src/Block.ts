@@ -2,12 +2,12 @@
 import sha256 from 'crypto-js/sha256';
 
 /**
- * Block Object
+ * This class represents a block
  * 
  * @author Parker Cranfield
  */
 class Block {
-    // Block properties
+    // Properties of the block
     private data: string;
     private previousHash: string;
     private nonce: number;
@@ -103,5 +103,5 @@ class Block {
     }
 }
 
-// Export the Block class
+// Exports
 export default Block;
