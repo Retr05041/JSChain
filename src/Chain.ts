@@ -23,12 +23,6 @@ class Chain {
 
         this.genisisBlock.mineBlock(this.difficulty);
         this.difficulty++;
-        if (debug) {
-            console.log("--------------------");
-            console.log("Chain built with genisis block");
-            console.log("Difficulty for next block: " + this.difficulty);
-            console.log("--------------------");
-        }
         this.displayBlock(this.chain.length - 1);
     }
 

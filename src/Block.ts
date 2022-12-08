@@ -13,6 +13,7 @@ class Block {
     private nonce: number;
     private hash: string;
     private isMined: boolean;
+    private timestamp: Date;
 
     /**
      * Construcor for Block
@@ -24,6 +25,7 @@ class Block {
     constructor(data: string, previousHash: string) {
         this.data = data;
         this.previousHash = previousHash;
+        this.timestamp = new Date();
         this.nonce = 0;
         this.hash = this.calculateHash();
         this.isMined = false;
@@ -53,7 +55,7 @@ class Block {
      * @returns Hash of the block
      */
     private calculateHash() {
-        return sha256(this.previousHash + this.data + this.nonce).toString();
+        return sha256(this.previousHash + this.data + this.timestamp + this.nonce).toString();
     }
 
     /**
@@ -88,7 +90,7 @@ class Block {
      * @returns Block info
      */
     public displayInfo() {
-        return "Block Info: " + this.data;
+        return "---------------------\n" + this.data + "\n" + "Hash: " + this.hash + "\n" + "Previous hash: " + this.previousHash + "\n" + "Timestamp: " + this.timestamp + "\n" + "---------------------";
     }
 
     /**
