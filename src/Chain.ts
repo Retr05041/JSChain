@@ -3,10 +3,12 @@ import { Console } from 'console';
 import Block from './Block';
 
 /**
- * The Block Chain
+ * This class represents the chain
+ * 
+ * @author Parker Cranfield
  */
 class Chain {
-    // Chain properties
+    // Properties of the chain
     private chain: Block[];
     private genisisBlock: Block;
     private difficulty: number;
@@ -14,6 +16,9 @@ class Chain {
 
     /**
      * Constructor for Chain
+     * 
+     * @param baseDifficulty Difficulty of the first block
+     * @param debug Debug mode
      */
     constructor(baseDifficulty: number, debug: boolean) {
         this.genisisBlock = Block.createGenesisBlock();
@@ -26,7 +31,11 @@ class Chain {
         this.displayBlock(this.chain.length - 1);
     }
 
-    // Mine
+    /**
+     * Mine a block with the given data
+     * 
+     * @param data Data to be stored in the block
+     */
     public mine(data: string) {
         // Create new block
         const newBlock = new Block(data, this.chain[this.chain.length - 1].getHash());
@@ -40,7 +49,11 @@ class Chain {
         this.displayBlock(this.chain.length - 1);
     }
 
-    // Display Block
+    /**
+     * Display a block in the chain based off of the index
+     * 
+     * @param index Index of the block to be displayed
+     */
     public displayBlock(index: number) {
         // Check if the index is valid
         if (index > this.chain.length) {
@@ -51,7 +64,11 @@ class Chain {
         console.log(this.chain[index].displayInfo());
     }
 
-    // Number of blocks
+    /**
+     * Get the number of blocks in the chain
+     * 
+     * @returns Number of blocks in the chain
+     */
     public getNumberOfBlocks() {
         return this.chain.length;
     }
