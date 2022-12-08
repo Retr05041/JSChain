@@ -1,12 +1,12 @@
 // Imports
 import Chain from './Chain';
+import Miner from './Miner';
 
 // Create the chain
-const debug = true;
-const chain = new Chain(1, debug);
+const chain = Chain.getInstance();
 
-// Mine some blocks
-chain.mine("Block " + chain.getNumberOfBlocks());
-chain.mine("Block " + chain.getNumberOfBlocks());
-chain.mine("Block " + chain.getNumberOfBlocks());
+// Create the miner
+const miner = new Miner();
+miner.start();
+
 
